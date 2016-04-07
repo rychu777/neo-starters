@@ -1,4 +1,4 @@
-package com.neoteric.starter.rabbit;
+package com.neoteric.starter.rabbit.messages;
 
 import java.lang.annotation.*;
 

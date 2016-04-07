@@ -1,4 +1,4 @@
-package com.neoteric.starter.rabbit;
+package com.neoteric.starter.rabbit.retry;
 
 import com.google.common.base.Strings;
 import com.google.common.collect.ImmutableMap;

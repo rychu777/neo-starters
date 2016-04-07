@@ -1,4 +1,4 @@
-package com.neoteric.starter.rabbit;
+package com.neoteric.starter.rabbit.retry;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

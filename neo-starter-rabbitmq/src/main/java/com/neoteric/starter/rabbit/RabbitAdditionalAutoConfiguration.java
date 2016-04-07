@@ -1,6 +1,11 @@
 package com.neoteric.starter.rabbit;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.neoteric.starter.rabbit.messages.Jackson2JsonGenericMessageConverter;
+import com.neoteric.starter.rabbit.messages.RabbitEntityTypeMapper;
+import com.neoteric.starter.rabbit.retry.ListenerExceptionClassifierRetryPolicy;
+import com.neoteric.starter.rabbit.retry.LogOnRetryListener;
+import com.neoteric.starter.rabbit.retry.RetryMessageRecoverer;
 import com.rabbitmq.client.Channel;
 import lombok.extern.slf4j.Slf4j;
 import org.aopalliance.aop.Advice;
@@ -68,7 +73,7 @@ public class RabbitAdditionalAutoConfiguration {
 
     @Bean
     public Jackson2JsonMessageConverter jacksonMessageConverter(ObjectMapper objectMapper, RabbitEntityTypeMapper rabbitEntityTypeMapper) {
-        Jackson2JsonMessageConverter jacksonMessageConverter = new Jackson2JsonMessageConverter();
+        Jackson2JsonMessageConverter jacksonMessageConverter = new Jackson2JsonGenericMessageConverter();
         jacksonMessageConverter.setJsonObjectMapper(objectMapper);
         jacksonMessageConverter.setJavaTypeMapper(rabbitEntityTypeMapper);
         return jacksonMessageConverter;
